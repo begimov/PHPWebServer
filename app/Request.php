@@ -43,4 +43,14 @@ class Request
 
         return new static($method, $uri, $headers);
     }
+
+    public function method()  
+    {
+        return $this->method;
+    }
+    
+    public function uri()  
+    {
+        return $this->uri;
+    }
 }
