@@ -96,4 +96,9 @@ class Response
 
         return implode(" \r\n", $lines)."\r\n\r\n";
     }
+
+    public function __toString()  
+    {
+        return $this->buildHeaderString().$this->body;
+    }
 }
