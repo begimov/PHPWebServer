@@ -34,7 +34,7 @@ class Server
 
     public function listen($callback)  
     {
-        if (!is_callable( $callback ))
+        if (!is_callable($callback))
         {
             throw new Exception('The given argument should be callable.');
         }
@@ -55,7 +55,7 @@ class Server
 
             if (!$response || !$response instanceof Response)
             {
-                $response = Response::error( 404 );
+                $response = Response::error(404);
             }
 
             $response = (string) $response;
