@@ -63,4 +63,18 @@ class Response
         505 => 'HTTP Version Not Supported',
         509 => 'Bandwidth Limit Exceeded'
     ];
+
+    public function __construct($body, $status = null)  
+    {
+        if (!is_null($status))
+        {
+            $this->status = $status;
+        }
+
+        $this->body = $body;
+
+        $this->header( 'Date', gmdate( 'D, d M Y H:i:s T' ) );
+        $this->header( 'Content-Type', 'text/html; charset=utf-8' );
+        $this->header( 'Server', 'PHPServer/1.0.0 (Whateva)' );
+    }
 }
