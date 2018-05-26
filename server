@@ -8,3 +8,11 @@ if (empty($argv)) {
 } else {
     $port = array_shift($argv);
 }
+
+require 'vendor/autoload.php';
+
+$server = new App\Server('127.0.0.1', $port);
+
+$server->listen(function(Request $request) {
+    return new App\Response('Response');
+});
