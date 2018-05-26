@@ -12,6 +12,16 @@ class Request
 
     protected $headers = [];
 
+    public function __construct($method, $uri, $headers = [])  
+    {
+        $this->headers = $headers;
+        $this->method = strtoupper($method);
+
+        @list($this->uri, $params) = explode('?', $uri);
+
+        parse_str($params, $this->parameters);
+    }
+
     public static function withHeaderString($header)  
     {
         $lines = explode("\n", $header);
