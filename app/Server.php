@@ -10,6 +10,16 @@ class Server
 
     protected $socket = null;
 
+    public function __construct($host, $port)  
+    {
+        $this->host = $host;
+        $this->port = (int) $port;
+
+        $this->createSocket();
+
+        $this->bind();
+    }
+
     protected function createSocket()
     {
         $this->socket = socket_create(AF_INET, SOCK_STREAM, 0);
